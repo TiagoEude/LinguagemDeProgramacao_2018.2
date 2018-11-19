@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1542648532 source:c:\users\tiagochaves\desktop\vidafinanceira 2.0\aaaa\main.c
+	<stdbool.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"login.h"
+	"menuPrincipal.h"
+
+1542647840 c:\users\tiagochaves\desktop\vidafinanceira 2.0\aaaa\login.h
+	<stdio.h>
+	<stdbool.h>
+	<string.h>
+	<stdlib.h>
+
+1542647974 c:\users\tiagochaves\desktop\vidafinanceira 2.0\aaaa\menuprincipal.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"consultarCadastrar.h"
+	"relatorios.h"
+
+1542653400 c:\users\tiagochaves\desktop\vidafinanceira 2.0\aaaa\consultarcadastrar.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1542655859 c:\users\tiagochaves\desktop\vidafinanceira 2.0\aaaa\relatorios.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1542648532 source:c:\users\tiagochaves\desktop\vidafinanceira 2.0\vidafinanceira\main.c
+	<stdbool.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"login.h"
+	"menuPrincipal.h"
+
+1542647840 c:\users\tiagochaves\desktop\vidafinanceira 2.0\vidafinanceira\login.h
+	<stdio.h>
+	<stdbool.h>
+	<string.h>
+	<stdlib.h>
+
+1542647974 c:\users\tiagochaves\desktop\vidafinanceira 2.0\vidafinanceira\menuprincipal.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"consultarCadastrar.h"
+	"relatorios.h"
+
+1542656920 c:\users\tiagochaves\desktop\vidafinanceira 2.0\vidafinanceira\consultarcadastrar.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1542655859 c:\users\tiagochaves\desktop\vidafinanceira 2.0\vidafinanceira\relatorios.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+

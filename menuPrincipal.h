@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "consultaCadastro.h"
+#include "consultarCadastrar.h"
 #include "relatorios.h"
 
 int menuPrincipal ();
-int gastos ();
-int recebidos ();
-int investimentos ();
+int menu (char *, int);
 int relatorios ();
 
 int menuPrincipal () {
-    char entradaMenuPrincipal;
+    int entradaMenuPrincipal;
+    char gastos[] = "GASTOS";
+    char recebidos[] = "RECEBIDOS";
+    char investimentos[] = "INVESTIMENTOS";
 
-    do {
-    	printf ("\e[H\e[2J");
+    for (;;) {
+    	system ("cls");
     	printf ("\n----MENU PRINCIPAL----\n");
     	printf("\n[1] GASTOS.\n");
     	printf("\n[2] RECEBIDOS.\n");
@@ -22,161 +23,130 @@ int menuPrincipal () {
     	printf("\n[4] RELATORIOS.\n");
         printf("\n[0] SAIR.\n");
     	printf("\nDIGITE: ");
-    	entradaMenuPrincipal = getchar (); 
+    	scanf ("%d", &entradaMenuPrincipal);
+        while (entradaMenuPrincipal != 0 && entradaMenuPrincipal != 1 && entradaMenuPrincipal != 2 &&
+        entradaMenuPrincipal != 3 && entradaMenuPrincipal != 4) {
+            system ("cls");
+    		printf ("\n----MENU PRINCIPAL----\n");
+    		printf ("\nVALOR INCORRETO.\n");
+    		for (int i = 0; i < 500000000; i++);
+            system ("cls");
+    	    printf ("\n----MENU PRINCIPAL----\n");
+    	    printf("\n[1] GASTOS.\n");
+    	    printf("\n[2] RECEBIDOS.\n");
+    	    printf("\n[3] INVESTIMENTOS.\n");
+    	    printf("\n[4] RELATORIOS.\n");
+            printf("\n[0] SAIR.\n");
+    	    printf("\nDIGITE: ");
+    	    scanf ("%d", &entradaMenuPrincipal);
+        } 
     	switch (entradaMenuPrincipal) {
-            case '0':
-                printf ("\e[H\e[2J");
-    			printf ("\n----MENU PRINCIPAL----\n");
-                printf ("\nSAINDO...\n");
-                for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
+            case 0:
+                for (int i = 0; i < 2; i++) {
+                    system ("cls");
+    			    printf ("\n----MENU PRINCIPAL----\n");
+                    printf ("\nSAINDO.\n");
+                    for (int i = 0; i < 200000000; i++);
+                    system ("cls");
+    			    printf ("\n----MENU PRINCIPAL----\n");
+                    printf ("\nSAINDO..\n");
+                    for (int i = 0; i < 200000000; i++);
+                    system ("cls");
+    			    printf ("\n----MENU PRINCIPAL----\n");
+                    printf ("\nSAINDO...\n");
+                    for (int i = 0; i < 200000000; i++);
+                }
                 return 0;
                 break;
-    		case '1':
-    			gastos ();
+    		case 1:
+    			menu (gastos, 4);
     			break;
-    		case '2':
-    			recebidos ();
+    		case 2:
+    			menu (recebidos, 3);
     			break;
-    		case '3':
-    			investimentos ();
+    		case 3:
+    			menu (investimentos, 3);
     			break;
-    		case '4':
+    		case 4:
     			relatorios ();
     			break;
-    		default:
-    			printf ("\e[H\e[2J");
-    			printf ("\n----MENU PRINCIPAL----\n");
-    			printf ("\nVALOR INCORRETO.\n");
-    			for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
-                break;
+    		
     	}
-	} while (true);   
+	}  
 }
 
-int gastos () {
-    char entradaGastos;
+int menu (char *categoria, int colunas) {
+    int entradaMenu;
 
-    do {
-        printf ("\e[H\e[2J");
-        printf ("\n----GASTOS----\n");
+    for (;;) {
+        system ("cls");
+        printf ("\n----%s----\n", categoria);
         printf("\n[1] CONSULTA.\n");
         printf("\n[2] CADASTRO.\n");
-        printf("\n[3] MENU PRINCIPAL.\n");
+        printf("\n[0] MENU PRINCIPAL.\n");
         printf("\nDIGITE: ");
-        entradaGastos = getchar ();
-        switch (entradaGastos) {
-            case '1':
-                consultar ("GASTOS", 4);
-                break;
-            case '2':
-                cadastrar ("GASTOS");
-                break;
-            case '3':
+        scanf ("%d", &entradaMenu);
+        while (entradaMenu != 0 && entradaMenu != 1 && entradaMenu != 2) {
+            system ("cls");
+            printf ("\n----%s----\n", categoria);
+            printf("\nVALOR INCORRETO.\n");
+            for (int i = 0; i < 500000000; i++);
+            system ("cls");
+            printf ("\n----%s----\n", categoria);
+            printf("\n[1] CONSULTA.\n");
+            printf("\n[2] CADASTRO.\n");
+            printf("\n[0] MENU PRINCIPAL.\n");
+            printf("\nDIGITE: ");
+            scanf ("%d", &entradaMenu);
+        }
+        switch (entradaMenu) {
+            case 0:
                 return 0;
                 break;
-            default:
-                printf ("\e[H\e[2J");
-                printf ("\n----MENU GASTOS----\n");
-                printf("\nVALOR INCORRETO.\n");
-                for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
+            case 1:
+                consultar (categoria, colunas);
+                break;
+            case 2:
+                cadastrar (categoria);
                 break;
         }
-
-    } while (true);
-}
-
-int recebidos () {
-    char entradaRecebidos;
-
-    do {
-        printf ("\e[H\e[2J");
-        printf ("\n----RECEBIDOS----\n");
-        printf("\n[1] CONSULTA.\n");
-        printf("\n[2] CADASTRO.\n");
-        printf("\n[3] MENU PRINCIPAL.\n");
-        printf("\nDIGITE: ");
-        entradaRecebidos = getchar ();
-        switch (entradaRecebidos) {
-            case '1':
-                consultar ("RECEBIDOS", 3);
-                break;
-            case '2':
-                cadastrar ("RECEBIDOS");
-                break;
-            case '3':
-                return 0;
-                break;
-            default:
-                printf ("\e[H\e[2J");
-                printf ("\n----RECEBIDOS----\n");
-                printf("\nVALOR INCORRETO.\n");
-                for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
-                break;
-        }
-
-    } while (true);
-}
-
-int investimentos () {
-    char entradaInvestimentos;
-
-    do {
-        printf ("\e[H\e[2J");
-        printf ("\n----INVESTIMENTOS----\n");
-        printf("\n[1] CONSULTA.\n");
-        printf("\n[2] CADASTRO.\n");
-        printf("\n[3] MENU PRINCIPAL.\n");
-        printf("\nDIGITE: ");
-        entradaInvestimentos = getchar ();
-        switch (entradaInvestimentos) {
-            case '1':
-                consultar ("INVESTIMENTOS", 3);
-                break;
-            case '2':
-                cadastrar ("INVESTIMENTOS");
-                break;
-            case '3':
-                return 0;
-                break;
-            default:
-                printf ("\e[H\e[2J");
-                printf ("\n----INVESTIMENTOS----\n");
-                printf("\nVALOR INCORRETO.\n");
-                for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
-                break;
-        }
-
-    } while (true);
+    }
 }
 
 int relatorios () {
-    char entradaInvestimentos;
+    int entradaRelatorios;
 
-    do {
-        printf ("\e[H\e[2J");
+    for (;;) {
+        system ("cls");
         printf ("\n----RELATORIOS----\n");
         printf("\n[1] MENSAL.\n");
         printf("\n[2] CATEGORIA.\n");
-        printf("\n[3] MENU PRINCIPAL.\n");
+        printf("\n[0] MENU PRINCIPAL.\n");
         printf("\nDIGITE: ");
-        entradaInvestimentos = getchar ();
-        switch (entradaInvestimentos) {
-            case '1':
-                relatorioMensal ();
-                break;
-            case '2':
-                relatorioCategoria ();
-                break;
-            case '3':
+        scanf ("%d", &entradaRelatorios);
+        while (entradaRelatorios != 0 && entradaRelatorios != 1 && entradaRelatorios != 2) {
+            system ("cls");
+            printf ("\n----RELATORIOS----\n");
+            printf("\nVALOR INCORRETO.\n");
+            for (int i = 0; i < 500000000; i++);
+            system ("cls");
+            printf ("\n----RELATORIOS----\n");
+            printf("\n[1] MENSAL.\n");
+            printf("\n[2] CATEGORIA.\n");
+            printf("\n[0] MENU PRINCIPAL.\n");
+            printf("\nDIGITE: ");
+            scanf ("%d", &entradaRelatorios);
+        }
+        switch (entradaRelatorios) {
+            case 0:
                 return 0;
                 break;
-            default:
-                printf ("\e[H\e[2J");
-                printf ("\n----RELATORIOS----\n");
-                printf("\nVALOR INCORRETO.\n");
-                for (int count = 0,i = 0; i <= 500000000; i++) count +=1;
+            case 1:
+                relatorioMensal ();
+                break;
+            case 2:
+                relatorioCategoria ();
                 break;
         }
-
-    } while (true);
+    }
 }
